@@ -1,0 +1,51 @@
+<div class="content-wrapper">
+    <!-- Container-fluid starts -->
+    <div class="container-fluid">
+        <!-- Main content starts -->
+        <div>
+            <!-- Row Starts -->
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 p-0">
+                    <div class="main-header">
+                        <h2>Home</h2>
+                        <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                            <li class="breadcrumb-item">
+                                <a href="<?=site_url('Website/Halaman/index')?>">
+                                    <i class="icofont icofont-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="<?=site_url('Website/Halaman/index')?>">Home</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!--Post blog single start-->
+            <div class="card blog-details" style="background: white;margin-top: -103px;">
+                <div class="container">
+
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="blog-single">
+                                <img src="<?=base_url()?>assets/images/home.jpg" alt="image-blog" class="img-fluid">
+                                    <h4 class="m-b-0">SEAMEO BIOTROP BUDIDAYA JAMUR</h4>
+
+                                <?php foreach ($row as $key => $vaData) { ?>
+                                   <?=$vaData['deskripsi'];?>
+                                <?php } ?>
+
+                            </div>
+
+
+                        </div>
+
+                        <!--post blog single Ends-->
+                        <!-- Related Articles start -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container-fluid ends -->
+    </div>
+</div>
