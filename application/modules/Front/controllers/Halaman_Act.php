@@ -6,7 +6,7 @@ class Halaman_Act extends CI_Controller {
 	public function __construct(){
 		
 		parent::__construct();
-		error_reporting(0); 
+		//error_reporting(0); 
 		ob_start();
 		ob_clean();
 		ob_end_clean();   
@@ -14,7 +14,7 @@ class Halaman_Act extends CI_Controller {
 		$this->load->model('model');
         // Meload Library session 
 		$this->load->library('session');
-		$this->load->library('m_pdf');
+		/*$this->load->library('m_pdf');*/
         //Meload database
 		$this->load->database();
         //Meload url 
@@ -90,7 +90,8 @@ class Halaman_Act extends CI_Controller {
 
 		$cUsername 	= $this->input->post('user') ;
 		$cPassword	= md5($this->input->post('pass')) ;
-
+		/*echo $cUsername.$cPassword;
+		exit();*/
 		$cModel		= $this->model->Login($cUsername,$cPassword);
 		if($cModel->num_rows() > 0 ){
 			foreach ($cModel->result_array() as $key => $vaUser) {

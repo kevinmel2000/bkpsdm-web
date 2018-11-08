@@ -6,7 +6,7 @@ class Master extends CI_Controller {
 	public function __construct(){
 		
         parent::__construct();
-		      
+		error_reporting(0);    
         $this->load->model('model');
         $this->load->model('relasi');
         $this->load->library('session');
@@ -14,7 +14,16 @@ class Master extends CI_Controller {
         $this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->helper('download'); 
-		$this->load->library('encrypt');
+		$this->load->library('encryption');
+
+
+$this->encryption->initialize(
+        array(
+                'cipher' => 'aes-256',
+                'mode' => 'ctr',
+                'key' => $this->config->config['encryption_key']
+        )
+);
 		 
     }
 		public  function Date2String($dTgl){
@@ -58,10 +67,10 @@ class Master extends CI_Controller {
 		if ($Action == "error"){
 			$data['notif'] = "Username / Password Salah" ;
 			}
-			$msg 			 = 'My secret message';
-			$msg_enkrip		 =  $this->encrypt->encode($msg);
-			$data['tes']	 =  $this->encrypt->encode($msg);
-			$data['tes2']	 =  $this->encrypt->decode($msg_enkrip);
+			$msg 			 = "My secret message";
+			$msg_enkrip		 =  $this->encryption->encrypt($msg);
+			$data['tes']	 =  $this->encryption->encrypt($msg);
+			$data['tes2']	 =  $this->encryption->decrypt($msg_enkrip);
 			$this->load->view('back-end/login',$data);
 		}
 		
