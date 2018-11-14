@@ -27,11 +27,22 @@
                         <div class="row">
                             <div class="blog-single">
                                 <?php foreach ($blog as $key => $vaData) { ?>
+
                                 <h4 class="m-b-0"><?=$vaData['judul']?></h4>
                                 <img style="margin-top: 15px" src="<?=base_url().$vaData['gambar']?>" alt="image-blog" class="img-fluid">
                                 
                                
                                     <?=$vaData['isi'];?>
+
+                                    <br>
+                                    <div align="center">
+                                    
+                                     <?php if(!empty($vaData['link_youtube'])){?>
+                                            <h4 align="center">LINK VIDEO</h4>
+                                            <iframe width="800" height="500" src="<?=$vaData['link_youtube']?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen align="center"></iframe>
+                                        <?php } ?>
+                                    <div>
+                                        
                                 <?php } ?>
                             </div>
 
